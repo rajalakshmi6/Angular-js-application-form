@@ -1,0 +1,21 @@
+<div class="container">
+<form name="loginform" class="form-signin" ng-controller="loginCtrl" novalidate>
+   <h2 class="form-signin-heading">Please sign in</h2>
+      <span style="color:red" ng-show="loginval">User Name or Password is Incorrect.</span>
+      <div class="form-group">
+        <input type="text" name="username" ng-model="login.username" class="form-control" placeholder="UserName" required autofocus>
+        <span style="color:red" ng-show="loginform.$submitted || loginform.username.$touched">
+      <span ng-show="loginform.username.$error.required">UserName is required.</span>
+      </div>
+      <div class="form-group">
+        <input type="password" name="password" ng-model="login.password" class="form-control" placeholder="Password" required>
+        <span style="color:red" ng-show="loginform.$submitted || loginform.password.$touched">
+      <span ng-show="loginform.password.$error.required">Password is required.</span>
+      </div>
+    <div class="form-group">
+     <div class="col-sm-offset-3 col-sm-5">
+        <button class="btn btn-lg btn-primary" ng-click="submitlogin(login)" type="submit">Sign in</button>
+      </div>
+    </div>
+</form>
+</div>

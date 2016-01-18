@@ -1,0 +1,42 @@
+<register-tab></register-tab>
+<div class="container">
+    <form name="createticket" class="form-inline" novalidate>
+        <div class="form-group">
+            <span><h3>Search Options:</h3></span>
+        </div>
+        <div class="form-group">
+            <input type="text" ng-model="searchname" class="form-control" placeholder="Search Name" >     
+        </div>
+        <div class="form-group">
+            <div class="input-group">
+                 <input type="text" class="form-control" datepicker-popup="dd-MM-yyyy" ng-model="searchdate" max-date="date.maxDate" datepicker-options="dateOptions" date-disabled="date.disabled(date, mode)" close-text="Close" show-weeks="false" is-open="opened" ng-focus="date.opened=true
+                       " required />                      
+                <span class="input-group-btn">
+                    <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+                </span>
+            </div>      
+        </div>
+    </form>
+    <table ng-controller="regdetailCtrl" class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>Name&nbsp;</th>
+                <th>Age&nbsp;</th>
+                <th>Date of Journey&nbsp;</th>
+                <th>Email&nbsp;</th>
+                <th>Contact Number&nbsp;</th>
+                <th>Total Tickets &nbsp;</th>
+            </tr>
+        </thead>
+        <tbody> 
+            <tr ng-repeat="tablevalue in tablevalues |filter:{name:searchname,traveldate:searchdate}">
+                <td>{{tablevalue.name}}</td>
+                <td>{{tablevalue.age}}</td>
+                <td>{{tablevalue.traveldate }}</td>
+                <td>{{tablevalue.email}}</td>
+                <td>{{tablevalue.contact}}</td>
+                <td>{{tablevalue.tickets}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
